@@ -1,0 +1,20 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+#title{
+    font-family: 'Rubik Doodle Shadow', system-ui;
+    color: #21543A;
+    font-size: 3.5em;
+    text-align: center;
+    
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+}
+
