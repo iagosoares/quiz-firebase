@@ -1,1 +1,4 @@
 node_modules/
+
+# Ignorar todos os arquivos que contenham a palavra "package" em seus nomes
+*package*
