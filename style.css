@@ -16,5 +16,89 @@ html, body{
     display: flex;
     flex-direction: column;
     max-width: 320px;
+    margin: 30px auto;
 }
+
+#input-question{
+    border: 0;
+    padding: 15px;
+
+}
+
+
+#add-button{
+    
+    width: 50%;
+    margin: 10px auto;    
+    background-color: #21543A;
+    border: 0;
+    padding: 10px;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 5px;
+    font-family: 'Protest Revolution', sans-serif;   
+
+
+}
+
+label{
+    font-family: 'Protest Revolution', sans-serif;
+    color: white;
+    font-size: 2em;
+    margin: 5px;
+}
+
+
+.inputs{
+    border: 0;
+    padding: 15px;
+
+}
+
+.div-answers{
+    
+    display: flex;
+    align-items: center;
+    
+}
+
+.div-answers input {
+    flex: 1;
+    margin-right: 10px; /* Ajuste conforme necessário */
+}
+
+.div-answers button {
+    border: 0;
+    padding: 10px;
+    color: white;
+    background-color: #21543A;
+    font-size: 1.5em;
+    border-radius: 5px;
+    font-family: 'Protest Revolution', sans-serif;
+}
+
+
+.div-select{
+    display: flex;
+    align-items: center;
+    
+}
+
+.div-select select{
+    background-color: white;
+    flex: 1;
+    margin-right: 10px; /* Ajuste conforme necessário */
+
+}
+
+.div-select button{    
+    border: 0;
+    padding: 10px;
+    color: white;
+    background-color: #8b0000;
+    font-size: 1.5em;
+    border-radius: 5px;
+    font-family: 'Protest Revolution', sans-serif;
+}
+
 
