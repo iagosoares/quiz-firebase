@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
+
 const firebaseConfig = {
             apiKey: "AIzaSyDJh9phia9qd4hLr9a5AzBsFlXrJsadkyA",
             authDomain: "teste-a12af.firebaseapp.com",
@@ -30,6 +31,7 @@ const inputAnswers = document.getElementById("input-answers")
 const btnAddAnswers = document.getElementById("add-answers");
 const btnRemoveAnswer = document.getElementById("btn-respostas-excluir");
 
+
 btnAddAnswers.addEventListener('click', function(){
     createSelect();
 });
@@ -41,10 +43,14 @@ btnRemoveAnswer.addEventListener('click', function(){
 
     let option = document.querySelectorAll('option')
 
-    option.forEach(item => {
-        if(item.value != '')
-        console.log(item.value)
-    })
+    //verificar se o option é diferente de zero, posso criar uma classe no option e verificar se possui essa classe, e montar o contador
+
+   
+
+    console.log("position: " + selectedValue)
+    console.log("text: " + option[selectedValue].value)
+
+    deletarSelect();
 });
 
 //console.log(database)
@@ -56,7 +62,7 @@ buttonAdd.addEventListener('click', function(){
     //let inputText = inputQuestion.value;
     
     //push(dbQuestion, json)
-    deletarSelect();
+    
 });
 
 
@@ -95,7 +101,7 @@ function deletarSelect(){
 
     select.remove(selectedValue);
 
-    console.log("item "+selectedValue + 'foi removido')
+    console.log("item "+selectedValue + '\nfoi removido')
 }
 
 
