@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - firebase</title>
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2 id="title">Question Add</h2>
+
+
+        <label for="input-question">Question</label>
+        <input type="text" id="input-question" name="input-question" placeholder="what your .." class="inputs">
+
+        <label for="input-answers">Answers</label>
+        <div class="div-answers">
+            
+            <input type="text" id="input-answers" name="input-answers" placeholder="Alternative A .." class="inputs">
+            <button id="add-answers">+</button>
+            
+        </div>
+
+        <label for="input-answers">Option correct</label>
+
+        <div class="div-select">
+
+            <select id="selectAlternativaCorreta" name="alternativaCorreta" class="inputs">
+                <option value="" disabled>Select the correct answer</option>        
+            </select>
+
+            <button id="btn-respostas-excluir" class="btn-remove">-</button> 
+
+      </div>
+
+        
+
+
+        <button id="add-button">SALVE</button>
+        <script src="script.js" type="module"></script>
+        
+    </div>
+
+
+</body>
+
+</html>

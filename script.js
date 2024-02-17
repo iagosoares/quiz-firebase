@@ -15,9 +15,9 @@ const firebaseConfig = {
 
         const json = {
 
-            pergunta: "Qual a cor do cavalo branco de Napoleão ?",
-            respostas: ["roxo", "caramelo", "vermelho","branco", "preto"],
-            alternativaCorreta: 3,
+            pergunta: "Qual dessas cidades não fazem parte do Brazil ?",
+            respostas: ["São Paulo", "Rio de Janeiro", "Salvador","Campo Grande", "Buenos Aires"],
+            alternativaCorreta: 4,
 
 
         };
@@ -43,28 +43,46 @@ btnRemoveAnswer.addEventListener('click', function(){
 
     let option = document.querySelectorAll('option')
 
-    //verificar se o option é diferente de zero, posso criar uma classe no option e verificar se possui essa classe, e montar o contador
-
-   
-
-    console.log("position: " + selectedValue)
-    console.log("text: " + option[selectedValue].value)
+    if(selectedValue <= 0)
+        return;    
 
     deletarSelect();
 });
 
 //console.log(database)
 
-const inputQuestion = document.getElementById("input-question")
+
 const buttonAdd = document.getElementById("add-button")
 
 buttonAdd.addEventListener('click', function(){
-    //let inputText = inputQuestion.value;
+
+    const inputQuestion = document.getElementById("input-question")
+    let answer = document.querySelectorAll('option')
+    let arrayAnswer = [];
+
+    let select = document.getElementById('selectAlternativaCorreta');
+    let selectedValue = select.selectedIndex - 1;
     
-    //push(dbQuestion, json)
+
+    answer.forEach(item => {
+        if(item.classList.contains('item-answer')){
+            arrayAnswer.push(item.value)
+
+        }
+    })
+
+    const json = {
+
+        pergunta: inputQuestion.value,
+        respostas: arrayAnswer,
+        alternativaCorreta: selectedValue,
+
+
+    };
+    
+    push(dbQuestion, json)
     
 });
-
 
 
  function getData(){
@@ -85,8 +103,8 @@ function createSelect(){
     let select = document.getElementById('selectAlternativaCorreta');
     let option = document.createElement('option');
 
-
     option.text = inputAnswers.value;
+    option.className = "item-answer"
     select.add(option);
 
     inputAnswers.value = '';

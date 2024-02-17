@@ -12,6 +12,14 @@ html, body{
     
 }
 
+#title-inicial{
+    font-family: 'Rubik Doodle Shadow', system-ui;
+    color: #21543A;
+    font-size: 3.5em;
+    text-align: center;
+    
+}
+
 .container{
     display: flex;
     flex-direction: column;
