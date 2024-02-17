@@ -11,16 +11,7 @@ const firebaseConfig = {
             messagingSenderId: "510452432561",
             appId: "1:510452432561:web:119d80b8ffdc015676ac90"
         };
-
-
-        const json = {
-
-            pergunta: "Qual dessas cidades não fazem parte do Brazil ?",
-            respostas: ["São Paulo", "Rio de Janeiro", "Salvador","Campo Grande", "Buenos Aires"],
-            alternativaCorreta: 4,
-
-
-        };
+      
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
@@ -34,6 +25,7 @@ const btnRemoveAnswer = document.getElementById("btn-respostas-excluir");
 
 btnAddAnswers.addEventListener('click', function(){
     createSelect();
+    
 });
 
 
@@ -48,8 +40,6 @@ btnRemoveAnswer.addEventListener('click', function(){
 
     deletarSelect();
 });
-
-//console.log(database)
 
 
 const buttonAdd = document.getElementById("add-button")
@@ -81,6 +71,7 @@ buttonAdd.addEventListener('click', function(){
     };
     
     push(dbQuestion, json)
+    limpaInputs();
     
 });
 
@@ -120,6 +111,21 @@ function deletarSelect(){
     select.remove(selectedValue);
 
     console.log("item "+selectedValue + '\nfoi removido')
+}
+
+function limpaInputs(){
+    let inputs = document.querySelectorAll('input');
+    
+    inputs.forEach(item => {
+        item.value = '';
+    })
+
+    let select = document.getElementsByClassName('item-answer')
+    
+    Array.from(select).forEach(item => {
+        item.remove();
+    });
+
 }
 
 

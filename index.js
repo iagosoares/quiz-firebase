@@ -36,6 +36,7 @@ onValue(dbQuestion, (snapshot)=>{
     let tbody = document.querySelector('tbody')
 
     //values.forEach(item => {console.log(item)});
+    tbody.innerHTML = '';
 
     dados.forEach(item => {
 
