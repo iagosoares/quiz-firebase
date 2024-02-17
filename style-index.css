@@ -1,0 +1,8 @@
+body{
+    background-color: black;
+    color: #21543A;
+}
+
+table, th, td{
+    color: #21543A !important;
+}

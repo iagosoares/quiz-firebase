@@ -100,8 +100,6 @@ function createSelect(){
 
     inputAnswers.value = '';
 
-
-
 }
 
 function deletarSelect(){

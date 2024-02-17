@@ -47,11 +47,13 @@ onValue(dbQuestion, (snapshot)=>{
           // Criar o cabeçalho da linha com o ID do item
           let th = document.createElement('th');
           th.setAttribute('scope', 'row');
+          th.className = 'text-center';
           th.textContent = item[0]; // ID do item
   
           // Criar a célula da pergunta
           let td = document.createElement('td');
-          td.textContent = item[1].pergunta; // Pergunta do item
+          td.textContent = item[1].pergunta;
+          td.className = 'text-left' // Pergunta do item
   
           // Adicionar o cabeçalho e a célula à linha
           tr.appendChild(th);
