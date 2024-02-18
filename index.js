@@ -12,8 +12,8 @@ const  tabela = document.getElementById('tabela')
 onValue(dbQuestion, (snapshot)=>{
     //let values = Object.values(snapshot.val())
     const dados = Object.entries(snapshot.val());
-    
 
+    console.log(dados)
 
 
     //const indiceAleatorio = Math.floor(Math.random() * dados.length);
@@ -44,7 +44,7 @@ onValue(dbQuestion, (snapshot)=>{
           let td_quantidade = document.createElement('td');
           td.textContent = item[1].pergunta;
           td_quantidade.textContent = item[1].respostas.length
-          td.className = 'text-left' // Pergunta do item
+         
   
           // Adicionar o cabeçalho e a célula à linha
           tr.appendChild(th);

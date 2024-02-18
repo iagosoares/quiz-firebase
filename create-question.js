@@ -16,9 +16,11 @@ const btnRemoveAnswer = document.getElementById("btn-respostas-excluir");
 
 btnAddAnswers.addEventListener('click', function(){
     createSelect();
-    santri();
+
     
 });
+
+
 
 
 btnRemoveAnswer.addEventListener('click', function(){
