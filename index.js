@@ -29,6 +29,24 @@ onValue(dbQuestion, (snapshot)=>{
 
     dados.forEach(item => {
 
+        let tdButton = document.createElement('td');
+        let btnDelete = document.createElement('button');
+        let btnEdit = document.createElement('button');
+        btnDelete.textContent = 'x';
+        btnDelete.type = "button";
+        btnEdit.type = "button";
+        btnEdit.textContent = 'edit';
+        btnDelete.classList.add("btn","btn-danger", "m-1", "btn-sm")
+        btnEdit.classList.add("btn","btn-warning", "m-1", "btn-sm")
+
+
+        btnDelete.addEventListener('click', function(){
+            let row = this.closest('tr');
+            row.remove()
+        })
+
+
+
 
           // Criar uma nova linha para cada item
           let tr = document.createElement('tr');
@@ -43,13 +61,19 @@ onValue(dbQuestion, (snapshot)=>{
           let td = document.createElement('td');
           let td_quantidade = document.createElement('td');
           td.textContent = item[1].pergunta;
-          td_quantidade.textContent = item[1].respostas.length
+          td_quantidade.textContent = item[1].respostas.length;
+
+          tdButton.appendChild(btnEdit)
+          tdButton.appendChild(btnDelete)
+          
          
   
           // Adicionar o cabeçalho e a célula à linha
           tr.appendChild(th);
           tr.appendChild(td);
           tr.appendChild(td_quantidade);
+          tr.appendChild(tdButton)
+         
   
           // Adicionar a linha à tabela
           tbody.appendChild(tr);
