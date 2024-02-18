@@ -1,16 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-
-const firebaseConfig = {
-            apiKey: "AIzaSyDJh9phia9qd4hLr9a5AzBsFlXrJsadkyA",
-            authDomain: "teste-a12af.firebaseapp.com",
-            databaseURL: "https://teste-a12af-default-rtdb.firebaseio.com",
-            projectId: "teste-a12af",
-            storageBucket: "teste-a12af.appspot.com",
-            messagingSenderId: "510452432561",
-            appId: "1:510452432561:web:119d80b8ffdc015676ac90"
-        };
+import {firebaseConfig} from "./firebase.js";
+import {santri} from "./teste.js"
       
 
 const app = initializeApp(firebaseConfig)
@@ -25,6 +16,7 @@ const btnRemoveAnswer = document.getElementById("btn-respostas-excluir");
 
 btnAddAnswers.addEventListener('click', function(){
     createSelect();
+    santri();
     
 });
 
