@@ -1,10 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, set, push, onValue, remove} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import {firebaseConfig} from "./firebase.js"
 
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
+
+
+verificaECriaNodoQuestion()
 const dbQuestion = ref(database, 'question')
 
 const  tabela = document.getElementById('tabela')
@@ -43,6 +46,12 @@ onValue(dbQuestion, (snapshot)=>{
         btnDelete.addEventListener('click', function(){
             let row = this.closest('tr');
             row.remove()
+            removeItem(row.childNodes[0].innerText)
+            
+        })
+
+        btnEdit.addEventListener('click', function(){
+            window.location.href = 'edit-question.html';
         })
 
 
@@ -83,6 +92,17 @@ onValue(dbQuestion, (snapshot)=>{
    
 });
 
+function verificaECriaNodoQuestion() {
+    const dbQuestionRef = ref(database, 'question');
+    onValue(dbQuestionRef, (snapshot) => {
+        if (!snapshot.exists()) {
+            // Nó 'question' não existe, então criamos ele com um valor inicial vazio
+            set(dbQuestionRef, {});
+        }
+    });
+}
+
+
 
 
 
@@ -103,6 +123,16 @@ function arrayAleatorio(arrayDeArrays){
     }   
 
     return newArray;
+
+}
+
+
+function removeItem(id){
+
+    const itemRef = ref(database, `question/${id}`)
+
+     remove(itemRef);
+     //função para remover um item do realtime, funcionando
 
 }
 
