@@ -10,7 +10,6 @@ const database = getDatabase(app)
 
 
 const dbQuestion = ref(database, 'question')
-console.log(dbQuestion)
 
 
 const inputAnswers = document.getElementById("input-answers")
@@ -21,12 +20,8 @@ const btnRemoveAnswer = document.getElementById("btn-respostas-excluir");
 btnAddAnswers.addEventListener('click', function(){
    
     createSelect();
-
     
 });
-
-
-
 
 btnRemoveAnswer.addEventListener('click', function(){
     let select = document.getElementById('selectAlternativaCorreta');
