@@ -52,7 +52,7 @@ onValue(dbQuestion, (snapshot)=>{
 
         btnEdit.addEventListener('click', function(){
             let row = this.closest('tr');
-            export let item = ref(database, `question/${row.childNodes[0].innerText}`)
+            let item = ref(database, `question/${row.childNodes[0].innerText}`)
 
             onValue(item, (snapshot)=>{
                 let dados = Object.entries(snapshot.val());
