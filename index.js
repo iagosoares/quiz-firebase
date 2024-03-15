@@ -51,6 +51,16 @@ onValue(dbQuestion, (snapshot)=>{
         })
 
         btnEdit.addEventListener('click', function(){
+            let row = this.closest('tr');
+            export let item = ref(database, `question/${row.childNodes[0].innerText}`)
+
+            onValue(item, (snapshot)=>{
+                let dados = Object.entries(snapshot.val());
+                console.log(dados)
+
+            })
+            //console.log(row.childNodes[0].innerText)
+            //console.log(item)
             window.location.href = 'edit-question.html';
         })
 
@@ -129,7 +139,7 @@ function arrayAleatorio(arrayDeArrays){
 
 function removeItem(id){
 
-    const itemRef = ref(database, `question/${id}`)
+    let itemRef = ref(database, `question/${id}`)
 
      remove(itemRef);
      //função para remover um item do realtime, funcionando
