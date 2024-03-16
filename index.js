@@ -5,29 +5,24 @@ import {firebaseConfig} from "./firebase.js"
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
-
-
-verificaECriaNodoQuestion()
 const dbQuestion = ref(database, 'question')
 
+
+
 const  tabela = document.getElementById('tabela')
+const tbody = document.querySelector('tbody')
+
 
 onValue(dbQuestion, (snapshot)=>{
-    //let values = Object.values(snapshot.val())
+    let values = Object.values(snapshot.val())
+    //values não traz o id;
     const dados = Object.entries(snapshot.val());
-
+   
     console.log(dados)
-
-
-    //const indiceAleatorio = Math.floor(Math.random() * dados.length);
-    //console.log(indiceAleatorio)
   
-
-    let tbody = document.querySelector('tbody')
-
-
-    //values.forEach(item => {console.log(item)});
     tbody.innerHTML = '';
+
+    dados.forEach(item => {console.log(item)})
 
 
     dados.forEach(item => {
@@ -47,18 +42,19 @@ onValue(dbQuestion, (snapshot)=>{
             let row = this.closest('tr');
             row.remove()
             removeItem(row.childNodes[0].innerText)
-            
+            console.log(row.childNodes[0].innerText)
         })
 
         btnEdit.addEventListener('click', function(){
             let row = this.closest('tr');
-            let item = ref(database, `question/${row.childNodes[0].innerText}`)
+            
+            localStorage.setItem("id-edit", row.childNodes[0].innerText);
 
-            onValue(item, (snapshot)=>{
-                let dados = Object.entries(snapshot.val());
-                console.log(dados)
+            // onValue(item, (snapshot)=>{
+            //     let dados = Object.entries(snapshot.val());
+            //     console.log(dados)
 
-            })
+            // })
             //console.log(row.childNodes[0].innerText)
             //console.log(item)
             window.location.href = 'edit-question.html';
@@ -102,15 +98,15 @@ onValue(dbQuestion, (snapshot)=>{
    
 });
 
-function verificaECriaNodoQuestion() {
-    const dbQuestionRef = ref(database, 'question');
-    onValue(dbQuestionRef, (snapshot) => {
-        if (!snapshot.exists()) {
-            // Nó 'question' não existe, então criamos ele com um valor inicial vazio
-            set(dbQuestionRef, {});
-        }
-    });
-}
+// function verificaECriaNodoQuestion() {
+//     const dbQuestionRef = ref(database, 'question');
+//     onValue(dbQuestionRef, (snapshot) => {
+//         if (!snapshot.exists()) {
+//             // Nó 'question' não existe, então criamos ele com um valor inicial vazio
+//             set(dbQuestionRef, {});
+//         }
+//     });
+// }
 
 
 
