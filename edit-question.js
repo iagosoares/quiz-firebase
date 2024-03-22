@@ -9,8 +9,14 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 //inicialização do realtime database.
 
+const id = localStorage.getItem("id-edit");
+
 const dbQuestion = ref(database, 'question')
 //referenciando o banco de dados desejado, nesse caso "question".
+
+const referencia = ref(database, 'question/' + id);
+
+
 
 
 
@@ -29,6 +35,12 @@ btnAddAnswers.addEventListener('click', function(){createSelect()});
 btnRemoveAnswer.addEventListener('click', function(){deletarSelect()});
 
 
+
+console.log("id selecionado: " + id)
+
+
+
+getData();
 
 
 buttonAdd.addEventListener('click', function(){
@@ -59,23 +71,43 @@ buttonAdd.addEventListener('click', function(){
 
     };
     
-    push(dbQuestion, json)
+    //push(dbQuestion, json)
     limpaInputs();
+    
     
 });
 
 
  function getData(){
-            onValue(dbQuestion, (snapshot)=>{
+            onValue(referencia, (snapshot)=>{
                 let values = Object.values(snapshot.val())
-                let id = Object.entries(snapshot.val());
+                //let id = Object.entries(snapshot.val());
+
+                let inputQuestion = document.getElementById("input-question").value = values[1]
 
                 //values.forEach(item => {console.log(item)});
+                //let dados =  snapshot.val();
+                //id.forEach(item => {console.log(item)});
+                console.log(values)
 
-                id.forEach(item => {console.log(item)});
+                selectFill(values[2])
+               
                 
                
             });
+        }
+
+
+        function selectFill(array){
+            let select = document.getElementById('selectAlternativaCorreta');
+            
+            array.forEach(item => {
+                let option = document.createElement('option');
+                option.text = item;
+                option.className = "item-answer";
+                select.add(option);
+
+            })
         }
 
 
