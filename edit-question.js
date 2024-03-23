@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, set, push, onValue, update} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import {firebaseConfig} from "./firebase.js";
 
 //comentar e entender o que cada linha está fazendo, para poder continuar para o edit.
@@ -26,7 +26,7 @@ const btnAddAnswers = document.getElementById("add-answers");
 const btnRemoveAnswer = document.getElementById("btn-respostas-excluir");
 //botão para [-] remover uma resposta.
 
-const buttonAdd = document.getElementById("add-button")
+const buttonSalve = document.getElementById("add-button")
 //botão de salvar 
 
 
@@ -43,7 +43,7 @@ console.log("id selecionado: " + id)
 getData();
 
 
-buttonAdd.addEventListener('click', function(){
+buttonSalve.addEventListener('click', function(){
 
     const inputQuestion = document.getElementById("input-question")
     let answer = document.querySelectorAll('option')
@@ -70,12 +70,20 @@ buttonAdd.addEventListener('click', function(){
 
 
     };
+
+    console.log(json)
+
+    update(referencia, json)
     
     //push(dbQuestion, json)
     limpaInputs();
     
     
 });
+
+    function updateData(){
+
+    }
 
 
  function getData(){
