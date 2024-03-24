@@ -75,15 +75,12 @@ buttonSalve.addEventListener('click', function(){
 
     update(referencia, json)
     
-    //push(dbQuestion, json)
-    limpaInputs();
+    window.location.href = 'lista-questoes.html';
     
     
 });
 
-    function updateData(){
-
-    }
+   
 
 
  function getData(){
